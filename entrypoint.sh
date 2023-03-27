@@ -11,7 +11,7 @@ EXIT_IF_AN_ERROR_OCCURRED() {
 
 TEST() {
     cd build
-    ./tests
+    ./bin/tests
     EXIT_IF_AN_ERROR_OCCURRED;
     cd ..
 }
