@@ -1,5 +1,5 @@
-#ifndef BOILEPLATE_CPP_CORE_H
-#define BOILEPLATE_CPP_CORE_H
+#ifndef BOILERPLATE_CPP_CORE_H
+#define BOILERPLATE_CPP_CORE_H
 
 #include <string>
 
@@ -18,4 +18,4 @@ namespace Boilerplate
   bool isOdd(int x);
 }
 
-#endif // BOILEPLATE_CPP_CORE_H
+#endif // BOILERPLATE_CPP_CORE_H
