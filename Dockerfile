@@ -3,7 +3,7 @@ FROM ubuntu:latest
 # Update apps on the base image
 RUN apt-get -y update && apt-get install -y
 
-# Install the Clang compiler
+# Install the gcc compiler
 RUN apt-get -y install gcc
 
 # Install the CMAKE

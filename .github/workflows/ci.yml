@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  push:
+    branches: ["main"]
+  pull_requests:
+    types: [opened, synchronize]
+
+jobs:
+  Linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+      - name: Install packages
+        RUN: |
+          apt-get -y install gcc
+          apt-get update && apt-get -y install cmake
+
+      - name: Create build directory
+        RUN: cmake -E make_directory build
+
+      - name: Build
+        RUN: |
+          cmake -S . -B build
+          cmake --build build
