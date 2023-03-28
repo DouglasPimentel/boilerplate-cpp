@@ -15,17 +15,15 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 2
 
       - name: Install packages
         RUN: |
           apt-get -y install gcc
           apt-get update && apt-get -y install cmake
 
-      - name: Create build directory
-        RUN: cmake -E make_directory build
-
       - name: Build
-        RUN: |
-          cmake -S . -B build
-          cmake --build build
+        RUN: ./configure.sh
+
+      - name: Run build
+        RUN: ./entrypoint.sh
