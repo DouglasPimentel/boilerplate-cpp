@@ -42,10 +42,10 @@ jobs:
           name: Install software
           command: |
             sudo apt-get update
-            sudo apt-get install -y clang
+            sudo apt-get install -y cmake
       - run:
           name: Build and run
-          command: clang --version
+          command: cmake --version
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
