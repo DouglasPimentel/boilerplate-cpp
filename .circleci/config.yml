@@ -21,15 +21,15 @@ jobs:
     docker:
       - image: cimg/base:current-22.04
     environment:
-      CC: gcc-12
-      CXX: gcc-12
+      CC: gcc-11
+      CXX: gcc-11
     steps:
       - checkout
       - run:
           name: Install software
           command: |
             sudo apt-get update
-            sudo apt-get install -y cmake g++-12 libstdc++-12-dev
+            sudo apt-get install -y cmake gcc
       - run:
           name: Build and run
           command: |
