@@ -48,7 +48,7 @@ jobs:
             sudo apt-get install -y cmake clang-14
       - run:
           name: Build and run
-          command: clang++ -v
+          command: clang++-14 -v
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
