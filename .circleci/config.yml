@@ -26,7 +26,8 @@ jobs:
           name: Install software
           command: |
             sudo apt-get update
-            sudo apt-get install -y gcc cmake
+            sudo apt-get install -y gcc
+            sudo snap install cmake --classic
       - run:
           name: Build and run
           command: cmake --version
