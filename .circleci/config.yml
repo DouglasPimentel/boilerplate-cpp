@@ -30,16 +30,12 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get install -y cmake g++-12 libstdc++-12-dev
-      - run: 
-          name: Permission to execute shell scripts
-          command: |
-            chmod +x configure.sh
-            chmod +x entrypoint.sh
       - run:
           name: Build and run
           command: |
-            ./configure.sh 
-            ./entrypoint.sh
+            cmake -S . -B build
+            cmake --build build
+            ./build/bin/boilerplate_build
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
