@@ -33,19 +33,23 @@ jobs:
             cmake -S . -B build
             cmake --build build
             ./build/bin/boilerplate_build
-   linux-clang:
-     machine:
-       image: ubuntu-2204:2022.07.1
-     steps:
-       - checkout
-       - run:
+  linux-clang:
+    machine:
+      image: ubuntu-2204:2022.07.1
+    steps:
+      - checkout
+      - run: 
           name: Install software
           command: |
             sudo apt-get update
-            sudo apt-get install -y clang
-       - run:
+            sudo apt-get install -y clang cmake
+      - run:
           name: Build and run
-          command: clang --version
+          command: |
+            cmake -S . -B build
+            cmake --build build
+            ./build/bin/boilerplate_build
+
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
