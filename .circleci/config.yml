@@ -34,8 +34,8 @@ jobs:
             cmake --build build
             ./build/bin/boilerplate_build
   linux-clang:
-    machine:
-      image: ubuntu-2204:2022.07.1
+    docker:
+      - image: cimg/base:current-22.04
     environment:
       CC: clang-14
       CXX: clang++-14
@@ -49,6 +49,7 @@ jobs:
       - run:
           name: Build and run
           command: clang --version
+
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
