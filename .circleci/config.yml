@@ -17,12 +17,29 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
-  say-hello-linux:
-    machine:
-      image: ubuntu-2204:2022.07.1
+  linux-gcc:
+    docker:
+      image: cimg/base:current-22.04
+    environment:
+      CC: gcc-12
+      CXX: gcc-12
     steps:
       - checkout
-      - run: echo "Hello from Linux VM"
+      - run:
+          name: Install software
+            command: |
+              sudo apt-get update
+              sudo apt-get install -y cmake g++-12 libstdc++-12-dev
+      - run: 
+          name: Permission to execute shell scripts
+          command: |
+            chmod +x configure.sh
+            chmod +x entrypoint.sh
+      - run:
+          name: Build and run
+          command: |
+            ./configure.sh 
+            ./entrypoint.sh
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -30,4 +47,4 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - say-hello-linux
+      - linux-gcc
