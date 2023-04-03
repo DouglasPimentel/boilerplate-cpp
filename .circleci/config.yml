@@ -35,17 +35,20 @@ jobs:
             ./build/bin/boilerplate_build
   linux-clang:
     machine:
-      image: ubuntu-2204:2022.07.1
+      image: ubuntu-2204:2022.07.1A
+    environment:
+      CC: clang-14
+      CXX: clang++-14
     steps:
       - checkout
       - run: 
           name: Install software
           command: |
             sudo apt-get update
-            sudo apt-get install -y cmake
+            sudo apt-get install -y cmake clang-14
       - run:
           name: Build and run
-          command: cmake --version
+          command: clang --version
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
