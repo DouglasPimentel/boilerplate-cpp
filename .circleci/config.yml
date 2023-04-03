@@ -36,14 +36,14 @@ jobs:
    linux-clang:
      machine:
        image: ubuntu-2204:2022.07.1
-    steps:
-      - checkout
-      - run:
+     steps:
+       - checkout
+       - run:
           name: Install software
           command: |
             sudo apt-get update
             sudo apt-get install -y clang
-      - run:
+       - run:
           name: Build and run
           command: clang --version
 
