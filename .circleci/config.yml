@@ -27,9 +27,9 @@ jobs:
       - checkout
       - run:
           name: Install software
-            command: |
-              sudo apt-get update
-              sudo apt-get install -y cmake g++-12 libstdc++-12-dev
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y cmake g++-12 libstdc++-12-dev
       - run: 
           name: Permission to execute shell scripts
           command: |
