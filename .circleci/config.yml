@@ -35,7 +35,7 @@ jobs:
             ./build/bin/boilerplate_build
   linux-clang:
     machine:
-      image: ubuntu-2204:2022.07.1A
+      image: ubuntu-2204:2022.07.1
     environment:
       CC: clang-14
       CXX: clang++-14
