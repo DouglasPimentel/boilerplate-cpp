@@ -20,9 +20,9 @@ jobs:
   say-hello-linux:
     machine:
       image: ubuntu-2204:2022.07.1
-      steps:
-        - checkout
-        - run: echo "Hello from Linux VM"
+    steps:
+      - checkout
+      - run: echo "Hello from Linux VM"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
