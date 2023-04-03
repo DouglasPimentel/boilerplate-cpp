@@ -18,24 +18,18 @@ jobs:
           name: "Say hello"
           command: "echo Hello, World!"
   linux-gcc:
-    docker:
-      - image: cimg/base:current-22.04
-    environment:
-      CC: gcc-11
-      CXX: gcc-11
+    machine:
+      image: ubuntu-2204:2022.07.1
     steps:
       - checkout
-      - run:
+      - run: 
           name: Install software
           command: |
             sudo apt-get update
-            sudo apt-get install -y cmake gcc
+            sudo apt-get install -y gcc
       - run:
           name: Build and run
-          command: |
-            cmake -S . -B build
-            cmake --build build
-            ./build/bin/boilerplate_build
+          command: g++ --version
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
