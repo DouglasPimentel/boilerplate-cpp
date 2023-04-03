@@ -26,10 +26,10 @@ jobs:
           name: Install software
           command: |
             sudo apt-get update
-            sudo apt-get install -y gcc
+            sudo apt-get install -y gcc cmake
       - run:
           name: Build and run
-          command: g++ --version
+          command: cmake --version
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
