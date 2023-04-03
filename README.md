@@ -1,6 +1,6 @@
 # Boilerplate Cpp
 
-A boilerplate for C++ development using Cmake, Docker, and GoogleTests.
+A boilerplate for C++ development using Cmake, Docker, CircleCI, and GoogleTests.
 
 ## Cloning the repository
 
