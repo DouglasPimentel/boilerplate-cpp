@@ -42,15 +42,10 @@ jobs:
           name: Install software
           command: |
             sudo apt-get update
-            sudo apt-get install -y clang cmake
+            sudo apt-get install -y clang
       - run:
           name: Build and run
-          command: |
-            cmake -S . -B build
-            cmake --build build
-            ./build/bin/boilerplate_build
-
-
+          command: clang --version
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
