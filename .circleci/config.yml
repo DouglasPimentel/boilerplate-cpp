@@ -17,12 +17,22 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
-  say-hello-linux:
+  linux-gcc:
     machine:
       image: ubuntu-2204:2022.07.1
     steps:
       - checkout
-      - run: echo "Hello from Linux VM"
+      - run: 
+          name: Install software
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y gcc cmake
+      - run:
+          name: Build and run
+          command: |
+            cmake -S . -B build
+            cmake --build build
+            ./build/bin/boilerplate_build
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -30,4 +40,4 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - say-hello-linux
+      - linux-gcc
