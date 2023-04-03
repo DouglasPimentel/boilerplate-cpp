@@ -33,6 +33,25 @@ jobs:
             cmake -S . -B build
             cmake --build build
             ./build/bin/boilerplate_build
+  linux-clang:
+    docker:
+      - image: cimg/base:current-22.04
+    environment:
+      CC: clang-14
+      CXX: clang++-14
+    steps:
+      - checkout
+      - run: 
+          name: Install software
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y cmake clang-14
+      - run:
+          name: Build and run
+          command: |
+            cmake -S . -B build
+            cmake --build build
+            ./build/bin/boilerplate_build
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -41,3 +60,4 @@ workflows:
     jobs:
       - say-hello
       - linux-gcc
+      - linux-clang
