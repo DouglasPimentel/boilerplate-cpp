@@ -43,7 +43,7 @@ jobs:
           command: |
             sudo apt-get update
             sudo apt-get install -y clang
-       - run:
+      - run:
           name: Build and run
           command: clang --version
 
