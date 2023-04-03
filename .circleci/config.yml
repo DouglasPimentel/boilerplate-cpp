@@ -19,7 +19,7 @@ jobs:
           command: "echo Hello, World!"
   linux-gcc:
     docker:
-      image: cimg/base:current-22.04
+      - image: cimg/base:current-22.04
     environment:
       CC: gcc-12
       CXX: gcc-12
