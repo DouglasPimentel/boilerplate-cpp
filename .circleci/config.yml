@@ -17,6 +17,12 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
+  say-hello-linux:
+    machine:
+      image: ubuntu-2204:2022.07.1
+      steps:
+        - checkout
+        - run: echo "Hello from Linux VM"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -24,3 +30,4 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+      - say-hello-linux
