@@ -26,8 +26,7 @@ jobs:
           name: Install software
           command: |
             sudo apt-get update
-            sudo apt-get install -y gcc
-            sudo snap install cmake --classic
+            sudo apt-get install -y gcc cmake=3.26.0-0kitware1ubuntu22.04.1
       - run:
           name: Build and run
           command: cmake --version
