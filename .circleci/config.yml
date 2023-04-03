@@ -51,6 +51,7 @@ jobs:
           command: |
             cmake -S . -B build
             cmake --build build
+            ./build/bin/boilerplate_build
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
