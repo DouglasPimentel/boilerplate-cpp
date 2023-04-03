@@ -54,3 +54,4 @@ workflows:
     jobs:
       - say-hello
       - linux-gcc
+      - linux-clang
