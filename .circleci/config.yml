@@ -33,6 +33,9 @@ jobs:
             cmake -S . -B build
             cmake --build build
             ./build/bin/boilerplate_build
+      - run:
+          name: Tests
+          command: ./entrypoint.sh test
   linux-clang:
     docker:
       - image: cimg/base:current-22.04
